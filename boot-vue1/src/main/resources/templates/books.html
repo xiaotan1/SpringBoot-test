@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Hello</title>
+</head>
+<body>
+    <!--<h1 th:text="${message}">Hello World</h1>-->
+    <table border="1">
+        <tr>
+            <td>图书编号啊啊啊啊啊阿顶顶顶顶顶顶顶顶谁谁谁谁谁谁嘻嘻嘻嘻嘻嘻嘻嘻嘻中小学咋啊啊啊嘻嘻嘻嘻嘻嘻嘻谢谢鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅而让人让人</td>
+            <td>图书名称</td>
+            <td>图书作者</td>
+        </tr>
+        <tr th:each="book:${books}">
+            <td th:text="${book.price}"></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.author}" ></td>
+        </tr>
+    </table>
+
+</body>
+</html>
