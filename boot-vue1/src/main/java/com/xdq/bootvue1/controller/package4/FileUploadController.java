@@ -25,28 +25,49 @@ public class FileUploadController {
          * MultipartFile uploadFile
          * 这里的uploadFile 名称需要和，前端input的name属性相同
          */
-        String a = req.getSession().getServletContext().getRealPath("/");
-        System.out.println(a);
         String realPath = req.getSession().getServletContext().getRealPath("/uploadFile/");
+        System.out.println(realPath);
         String format = simpleDateFormat.format(new Date());
-        File floder = new File(realPath + format);
-
-        if (!floder.exists()){//isDirectory()
-            floder.mkdirs();
+        File folder = new File(realPath + format);
+        if (!folder.isDirectory()) {
+            folder.mkdirs();
         }
-        String oldName = uploadFile.getOriginalFilename() ;
-        String newName = UUID.randomUUID().toString () +
-            oldName.substring(oldName.lastIndexOf("."), oldName . length());
+        String oldName = uploadFile.getOriginalFilename();
+        String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."), oldName.length());
         try {
-            uploadFile.transferTo(new File(floder , newName ) ) ;
-            String filePath = req.getScheme() + "://" + req.getServerName() + ":" +
-            req.getServerPort() +"/uploadFile/"+ format + newName ;
-            return filePath ;
+            uploadFile.transferTo(new File(folder, newName));
+            String filePath = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/uploadFile/" + format + newName;
+            return filePath;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "上传失败";
     }
 
+
+
+   /* @PostMapping("/uploads")
+    public String upload(MultipartFile[] uploadFiles, HttpServletRequest req) {
+        for (MultipartFile uploadFile : uploadFiles) {
+            String realPath = req.getSession().getServletContext().getRealPath("/uploadFile/");
+            System.out.println(realPath);
+            String format = simpleDateFormat.format(new Date());
+            File folder = new File(realPath + format);
+            if (!folder.isDirectory()) {
+                folder.mkdirs();
+            }
+            String oldName = uploadFile.getOriginalFilename();
+            String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."), oldName.length());
+            try {
+                uploadFile.transferTo(new File(folder, newName));
+                String filePath = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/uploadFile/" + format + newName;
+//            return filePath;
+                System.out.println(filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return "上传失败!";
+    }*/
 
 }
