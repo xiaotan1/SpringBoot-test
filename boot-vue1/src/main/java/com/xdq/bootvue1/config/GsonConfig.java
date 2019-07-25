@@ -6,6 +6,7 @@ import java.lang.reflect.Modifier;
 
 /**
  * 创建该类，用来格式化Gson，中使用到的日期类，返回格式：yyyy-MM-dd
+ * Gson的jar去掉了，在pom中可见
  */
 @Configuration
 public class GsonConfig {

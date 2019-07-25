@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  全局数据
+ *  全局数据 工具类
  */
 @ControllerAdvice
 public class GlobalConfig {

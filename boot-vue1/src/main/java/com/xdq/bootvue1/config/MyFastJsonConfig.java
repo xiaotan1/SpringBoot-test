@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 import java.nio.charset.Charset;
 
+/**
+ * Fastjson的配置，格式化日期yyyy-MM-dd，和编码格式
+ */
 @Configuration
 public class MyFastJsonConfig {
     @Bean

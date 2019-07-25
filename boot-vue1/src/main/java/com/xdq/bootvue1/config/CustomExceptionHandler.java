@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * 上传文件大小限制
+ */
 @ControllerAdvice
 public class CustomExceptionHandler {
 

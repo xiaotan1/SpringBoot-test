@@ -29,7 +29,7 @@ public class FreeMarkerController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("a", "cc");
         mv.addObject("books", books);
-        mv.setViewName("books1");
+        mv.setViewName("index");
         return mv;
     }
 
